@@ -43,6 +43,9 @@ function StockSummary() {
         console.error(error);
     });
 
+    document.addEventListener("change-ticker-symbol", (e) => {
+        setTickerSymbol(e.detail.tickerSymbol);
+    }, false);
   return (
     <div className="App">
         <p>Stock Ticker Symbol: <strong>{tickerSymbol}</strong></p>

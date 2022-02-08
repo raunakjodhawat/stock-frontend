@@ -1,24 +1,12 @@
 import { useState } from "react";
-import { getCompanyInformation } from "../../services";
 
-function Company() {
+function Company(props) {
     const [imgLogoURL, setImageLogo] = useState("");
     const [companyName, setCompanyName] = useState("");
     const [tickerSymbol, setTickerSymbol] = useState("TSLA");
     const [exchangeCode, setExchangeCode] = useState("");
     const [ipoDate, setIPODate] = useState("");
     const [category, setCategory] = useState("");
-
-    getCompanyInformation(tickerSymbol).then((response) => {
-        setImageLogo(response.logo);
-        setCompanyName(response.name);
-        setTickerSymbol(response.ticker);
-        setExchangeCode(response.exchange);
-        setIPODate(response.ipo);
-        setCategory(response.finnhubIndustry);
-    }).catch((error) => {
-        console.error(error);
-    });
 
   return (
     <div className="App">
