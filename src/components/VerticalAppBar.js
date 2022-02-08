@@ -9,8 +9,7 @@ import StockSummary from './verticalAppBarComponents/StockSummary';
 
 const pages = ['COMPANY', 'STOCK SUMMARY', 'CHARTS', 'LATEST NEWS'];
 
-const ResponsiveAppBar = (props) => {
-  console.log(props);
+const ResponsiveAppBar = ({tickerInfo}) => {
   const [selectedIndex, changeSelectIndex] = React.useState(0);
 
   const handleNavClick = (event) => {
@@ -37,7 +36,7 @@ const ResponsiveAppBar = (props) => {
       </Container>
     </AppBar>
     <br />
-    {selectedIndex === 0 && <Company />}
+    {selectedIndex === 0 && <Company companyInfo={tickerInfo.companyInfo} />}
     {selectedIndex === 1 && <StockSummary />}
     </div>
   );

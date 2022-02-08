@@ -1,23 +1,16 @@
-import { useState } from "react";
+import * as React from 'react';
 
-function Company(props) {
-    const [imgLogoURL, setImageLogo] = useState("");
-    const [companyName, setCompanyName] = useState("");
-    const [tickerSymbol, setTickerSymbol] = useState("TSLA");
-    const [exchangeCode, setExchangeCode] = useState("");
-    const [ipoDate, setIPODate] = useState("");
-    const [category, setCategory] = useState("");
-
+function Company({companyInfo}) {
   return (
     <div className="App">
-        <img src={imgLogoURL} alt="logo"/>
-        <p>Company Name: <strong>{companyName}</strong></p>
-        <p>Stock Ticker Symbol: <strong>{tickerSymbol}</strong></p>
-        <p>Stock Exchange code: <strong>{exchangeCode}</strong></p>
-        <p>Company IPO date: <strong>{ipoDate}</strong></p>
-        <p>Category: <strong>{category}</strong></p>
+        <img src={companyInfo.logo} alt="logo"/>
+        <p>Company Name: <strong>{companyInfo.name}</strong></p>
+        <p>Stock Ticker Symbol: <strong>{companyInfo.ticker}</strong></p>
+        <p>Stock Exchange code: <strong>{companyInfo.exchange}</strong></p>
+        <p>Company IPO date: <strong>{companyInfo.ipo}</strong></p>
+        <p>Category: <strong>{companyInfo.finnhubIndustry}</strong></p>
     </div>
   );
 }
 
-export default Company;
+export default React.memo(Company);

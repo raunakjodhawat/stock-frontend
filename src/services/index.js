@@ -34,7 +34,6 @@ const getNews = (tickerSymbol) => {
     });
 }
 
-//http://localhost:9000/stock/candle/TSLA?resolution=1&from=1631022248&to=1631627048
 const getCandle = (tickerSymbol) => {
     return fetch(`http://localhost:9000/stock/candle/${tickerSymbol}?resolution=1&from=1631022248&to=1631627048`)
     .then((response) => response.json())
