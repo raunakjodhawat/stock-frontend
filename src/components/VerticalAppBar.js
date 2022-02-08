@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Company from './verticalAppBarComponents/Company';
 import StockSummary from './verticalAppBarComponents/StockSummary';
 import Candle from './verticalAppBarComponents/Candle';
+import News from './verticalAppBarComponents/News';
 
 const pages = ['COMPANY', 'STOCK SUMMARY', 'CHARTS', 'LATEST NEWS'];
 
@@ -40,6 +41,7 @@ const ResponsiveAppBar = ({tickerInfo}) => {
     {selectedIndex === 0 && <Company companyInfo={tickerInfo.companyInfo} />}
     {selectedIndex === 1 && <StockSummary companyQuote={tickerInfo.companyQuote} recommendation={tickerInfo.recommendation}/>}
     {selectedIndex === 2 && <Candle candle={tickerInfo.candle} tickerSymbol={tickerInfo.companyInfo.name} />}
+    {selectedIndex === 3 && <News news={tickerInfo.news} />}
     </div>
   );
 };
