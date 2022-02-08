@@ -9,7 +9,6 @@ function News({ news }) {
                     <tbody>
                         {
                             news.filter((item) => item.image && item.headline && item.summary && item.url).map((newsItem, index) => {
-                                console.log(newsItem);
                                 return (
                                     <div key={index}>
                                         <tr>
