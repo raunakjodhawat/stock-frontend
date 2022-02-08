@@ -2,36 +2,22 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
+import Company from './verticalAppBarComponents/Company';
+import StockSummary from './verticalAppBarComponents/StockSummary';
 
-const pages = ['Company', 'Stock Summary', 'Charts', 'Latest News'];
+const pages = ['COMPANY', 'STOCK SUMMARY', 'CHARTS', 'LATEST NEWS'];
 
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [selectedIndex, changeSelectIndex] = React.useState(0);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const handleNavClick = (event) => {
+    changeSelectIndex(pages.indexOf(event.target.innerText.slice(0, -1)));
   };
 
   return (
+    <div>
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -39,7 +25,7 @@ const ResponsiveAppBar = () => {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={handleNavClick}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
@@ -49,6 +35,10 @@ const ResponsiveAppBar = () => {
         </Toolbar>
       </Container>
     </AppBar>
+    <br />
+    {selectedIndex === 0 && <Company />}
+    {selectedIndex === 1 && <StockSummary />}
+    </div>
   );
 };
 export default ResponsiveAppBar;
