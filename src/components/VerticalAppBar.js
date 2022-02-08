@@ -39,7 +39,7 @@ const ResponsiveAppBar = ({tickerInfo}) => {
     <br />
     {selectedIndex === 0 && <Company companyInfo={tickerInfo.companyInfo} />}
     {selectedIndex === 1 && <StockSummary companyQuote={tickerInfo.companyQuote} recommendation={tickerInfo.recommendation}/>}
-    {selectedIndex === 2 && <Candle candle={tickerInfo.candle} />}
+    {selectedIndex === 2 && <Candle candle={tickerInfo.candle} tickerSymbol={tickerInfo.companyInfo.name} />}
     </div>
   );
 };
