@@ -1,4 +1,4 @@
-# Frontend for Scala backend stock application
+# Frontend for Stock application
 
 run using npm start
 
